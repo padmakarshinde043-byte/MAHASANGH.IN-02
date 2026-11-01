@@ -1,48 +1,47 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: padmakarshinde043-byte/MAHASANGH.IN-02
   branch: main
-
-publish_mode: editorial_workflow
 
 media_folder: "images"
 public_folder: "/images"
 
 collections:
   - name: "pages"
-  label: "वेबसाईट पेजेस"
-  files:
-    - file: "index.html"
-      label: "मुख्यपृष्ठ (Home)"
-      name: "home"
-      fields:
-        - {label: "पेज शीर्षक (Title)", name: "title", widget: "string"}
-        
-    - file: "about.html"
-      label: "आमच्याबद्दल (About)"
-      name: "about"
-      fields:
-        - {label: "शीर्षक", name: "title", widget: "string"}
-        
-    - file: "objectives.html"
-      label: "उद्दिष्टे (Objectives)"
-      name: "objectives"
-      fields:
-        - {label: "शीर्षक", name: "title", widget: "string"}
-        
-    - file: "leadership.html"
-      label: "नेतृत्व (Leadership)"
-      name: "leadership"
-      fields:
-        - {label: "शीर्षक", name: "title", widget: "string"}
-        
-    - file: "news.html"
-      label: "बातम्या (News)"
-      name: "news"
-      fields:
-        - {label: "शीर्षक", name: "title", widget: "string"}
-        
-    - file: "contact.html"
-      label: "संपर्क (Contact)"
-      name: "contact"
-      fields:
-        - {label: "शीर्षक", name: "title", widget: "string"}
+    label: "वेबसाईट पेजेस"
+    files:
+      - file: "index.html"
+        label: "मुख्यपृष्ठ (Home)"
+        name: "home"
+        fields:
+          - {label: "पेज शीर्षक (Title)", name: "title", widget: "string"}
+          
+      - file: "about.html"
+        label: "आमच्याबद्दल (About)"
+        name: "about"
+        fields:
+          - {label: "शीर्षक", name: "title", widget: "string"}
+          
+      - file: "objectives.html"
+        label: "उद्दिष्टे (Objectives)"
+        name: "objectives"
+        fields:
+          - {label: "शीर्षक", name: "title", widget: "string"}
+          
+      - file: "leadership.html"
+        label: "नेतृत्व (Leadership)"
+        name: "leadership"
+        fields:
+          - {label: "शीर्षक", name: "title", widget: "string"}
+          
+      - file: "news.html"
+        label: "बातम्या (News)"
+        name: "news"
+        fields:
+          - {label: "शीर्षक", name: "title", widget: "string"}
+          
+      - file: "contact.html"
+        label: "संपर्क (Contact)"
+        name: "contact"
+        fields:
+          - {label: "शीर्षक", name: "title", widget: "string"}
