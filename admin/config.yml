@@ -13,29 +13,47 @@ collections:
         label: "मुख्यपृष्ठ (Home)"
         name: "home"
         fields:
-          - {label: "पेज शीर्षक", name: "title", widget: "string"}
+          - {label: "मुख्य शीर्षक", name: "title", widget: "string"}
+          - {label: "मुख्य मजकूर व माहिती", name: "body", widget: "markdown"}
+          - {label: "बॅनर फोटो अपलोड करा", name: "banner_image", widget: "image", required: false}
+
       - file: "about.html"
         label: "आमच्याबद्दल (About)"
         name: "about"
         fields:
-          - {label: "शीर्षक", name: "title", widget: "string"}
+          - {label: "पृष्ठ शीर्षक", name: "title", widget: "string"}
+          - {label: "संस्थेची सविस्तर माहिती", name: "body", widget: "markdown"}
+          - {label: "संबंधित फोटो अपलोड करा", name: "about_image", widget: "image", required: false}
+
       - file: "objectives.html"
         label: "उद्दिष्टे (Objectives)"
         name: "objectives"
         fields:
-          - {label: "शीर्षक", name: "title", widget: "string"}
+          - {label: "पृष्ठ शीर्षक", name: "title", widget: "string"}
+          - {label: "उद्दिष्टांची सविस्तर माहिती", name: "body", widget: "markdown"}
+
       - file: "leadership.html"
         label: "नेतृत्व (Leadership)"
         name: "leadership"
         fields:
-          - {label: "शीर्षक", name: "title", widget: "string"}
-      - file: "news.html"
-        label: "बातम्या (News)"
-        name: "news"
-        fields:
-          - {label: "शीर्षक", name: "title", widget: "string"}
+          - {label: "पृष्ठ शीर्षक", name: "title", widget: "string"}
+          - {label: "नेतृत्व माहिती", name: "body", widget: "markdown"}
+          - {label: "नेतृत्वाचा फोटो अपलोड करा", name: "leader_image", widget: "image", required: false}
+
       - file: "contact.html"
         label: "संपर्क (Contact)"
         name: "contact"
         fields:
-          - {label: "शीर्षक", name: "title", widget: "string"}
+          - {label: "पृष्ठ शीर्षक", name: "title", widget: "string"}
+          - {label: "पत्त्याची माहिती व तपशील", name: "body", widget: "markdown"}
+
+  - name: "news"
+    label: "बातम्या व अपडेट्स"
+    folder: "_posts/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "बातम्याचे शीर्षक", name: "title", widget: "string"}
+      - {label: "दिनांक", name: "date", widget: "datetime"}
+      - {label: "बातम्याचा फोटो", name: "image", widget: "image", required: false}
+      - {label: "बातम्याचा सविस्तर तपशील", name: "body", widget: "markdown"}
