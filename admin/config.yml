@@ -1,0 +1,67 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "pages"
+    label: "वेबसाईट पेजेस मॅनेज करा"
+    files:
+      - file: "index.html"
+        label: "१. मुख्यपृष्ठ (Home Page)"
+        name: "home"
+        fields:
+          - {label: "मुख्य शीर्षक (Main Title)", name: "title", widget: "string"}
+          - {label: "मुख्य टॅगलाईन / ब्रीदवाक्य", name: "tagline", widget: "string"}
+          - {label: "मुख्य पानावरील तपशील / परिच्छेद", name: "body", widget: "markdown"}
+          - {label: "बॅनर मुख्य फोटो", name: "banner_image", widget: "image", required: false}
+
+      - file: "about.html"
+        label: "२. आमच्याबद्दल (About Us)"
+        name: "about"
+        fields:
+          - {label: "पेज शीर्षक", name: "title", widget: "string"}
+          - {label: "संस्थेची सविस्तर माहिती", name: "body", widget: "markdown"}
+          - {label: "संबंधित फोटो", name: "about_image", widget: "image", required: false}
+
+      - file: "objectives.html"
+        label: "३. उद्दिष्टे (Objectives)"
+        name: "objectives"
+        fields:
+          - {label: "पेज शीर्षक", name: "title", widget: "string"}
+          - {label: "उद्दिष्टांची माहिती", name: "body", widget: "markdown"}
+
+      - file: "leadership.html"
+        label: "४. नेतृत्व (Leadership)"
+        name: "leadership"
+        fields:
+          - {label: "पेज शीर्षक", name: "title", widget: "string"}
+          - {label: "नेतृत्व व पदाधिकारी माहिती", name: "body", widget: "markdown"}
+          - {label: "नेतृत्वाचा फोटो", name: "leader_image", widget: "image", required: false}
+
+      - file: "news.html"
+        label: "५. बातम्या पेज (News)"
+        name: "news"
+        fields:
+          - {label: "पेज शीर्षक", name: "title", widget: "string"}
+          - {label: "बातम्या पेजवरील माहिती", name: "body", widget: "markdown"}
+
+      - file: "contact.html"
+        label: "६. संपर्क (Contact Us)"
+        name: "contact"
+        fields:
+          - {label: "पेज शीर्षक", name: "title", widget: "string"}
+          - {label: "पत्ता व मोबाईल नंबर तपशील", name: "body", widget: "markdown"}
+
+  - name: "dynamic_news"
+    label: "नवीन बातम्या जोडा / काढा"
+    folder: "_posts/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "बातम्याचे शीर्षक", name: "title", widget: "string"}
+      - {label: "दिनांक", name: "date", widget: "datetime"}
+      - {label: "बातम्याचा मुख्य फोटो", name: "image", widget: "image", required: false}
+      - {label: "बातम्याचा सविस्तर मजकूर", name: "body", widget: "markdown"}
