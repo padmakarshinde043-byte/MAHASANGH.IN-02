@@ -38,4 +38,18 @@ const renderGallery = async () => {
   target.innerHTML = records.map((item) => `<article class="gallery-card">${item.imageUrl ? `<img src="${escapeHtml(item.imageUrl)}" alt="${escapeHtml(item.caption || 'फोटो')}" loading="lazy">` : ''}<h3>${escapeHtml(item.caption || 'फोटो')}</h3><p>${escapeHtml(item.description || '')}</p><small>${escapeHtml(formatDate(item.createdAt))}</small></article>`).join('')
 }
 
-await Promise.all([renderNews(), renderGallery()])
+const renderDocuments = async () => {
+  const target = document.querySelector('[data-firebase-documents]')
+  if (!target) return
+  const records = await getRecords('documents', 'documents')
+  if (!records.length) return
+  target.innerHTML = records.map((item) => `<article class="resource-card"><h3>${escapeHtml(item.title || 'महत्त्वाचा GR')}</h3><p>${escapeHtml(item.description || '')}</p>${item.pdfUrl ? `<a href="${escapeHtml(item.pdfUrl)}" target="_blank" rel="noopener">PDF उघडा</a>` : ''}</article>`).join('')
+}
+const renderOfficers = async () => {
+  const target = document.querySelector('[data-firebase-officers]')
+  if (!target) return
+  const records = await getRecords('officers', 'officers')
+  if (!records.length) return
+  target.innerHTML = records.map((item) => `<article class="officer-card">${item.photoUrl ? `<img src="${escapeHtml(item.photoUrl)}" alt="${escapeHtml(item.name || 'पदाधिकारी')}" loading="lazy">` : ''}<h3>${escapeHtml(item.name || '')}</h3><p>${escapeHtml(item.role || '')}</p>${item.phone ? `<a href="tel:${escapeHtml(item.phone)}">${escapeHtml(item.phone)}</a>` : ''}</article>`).join('')
+}
+await Promise.all([renderNews(), renderGallery(), renderDocuments(), renderOfficers()])
