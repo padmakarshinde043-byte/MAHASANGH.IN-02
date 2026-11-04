@@ -36,5 +36,5 @@
   </main>
   <footer><div class="container footer-inner"><div><strong>महाराष्ट्र राज्य<br />केंद्रप्रमुख व अधिकारी महासंघ</strong><p>संघटन · सन्मान · समर्पण · शैक्षणिक गुणवत्ता</p></div><div><p>कार्यालय : १३१, पाटणे, ता. मालेगाव, जि. नाशिक</p><p>मो. ९८६०७०४०९८ · mahasangh2026@gmail.com</p></div></div><div class="container copyright">© २०२६ महासंघ. सर्व हक्क राखीव.</div></footer>
   <script>const button=document.querySelector('.menu-button'),nav=document.querySelector('#main-nav');const closeMenu=()=>{nav.classList.remove('open');button.setAttribute('aria-expanded','false')};button.addEventListener('click',()=>{const open=nav.classList.toggle('open');button.setAttribute('aria-expanded',String(open))});nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));document.addEventListener('click',event=>{if(nav.classList.contains('open')&&!nav.contains(event.target)&&!button.contains(event.target))closeMenu()});document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu()});</script>
-</body>
+<script src="/site-nav.js" defer></script></body>
 </html>
