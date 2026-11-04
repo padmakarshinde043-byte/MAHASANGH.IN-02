@@ -25,7 +25,7 @@
     const publicHeader = document.querySelector('.public-header')
     if (publicHeader) {
       const brand = publicHeader.querySelector('.public-brand')
-      publicHeader.innerHTML = `<div class="public-header-inner"><a class="public-brand" href="/index.html">${brand?.innerHTML || 'महाराष्ट्र राज्य महासंघ'}</a><button class="public-menu-button" type="button" aria-expanded="false" aria-controls="shared-public-nav">मेनू</button><nav id="shared-public-nav" class="public-nav" aria-label="मुख्य नेव्हिगेशन">${markup}</nav></div>`
+      publicHeader.innerHTML = `<div class="public-header-inner"><a class="public-brand" href="/index.html">${brand?.innerHTML || 'महाराष्ट्र राज्य महासंघ'}</a><button class="public-menu-button" type="button" aria-expanded="false" aria-controls="shared-public-nav"><span class="menu-lines" aria-hidden="true"><i></i><i></i><i></i></span><span class="menu-label">मेनू</span></button><nav id="shared-public-nav" class="public-nav" aria-label="मुख्य नेव्हिगेशन">${markup}</nav></div>`
       const menu = publicHeader.querySelector('.public-menu-button')
       const nav = publicHeader.querySelector('#shared-public-nav')
       menu?.addEventListener('click', () => {
