@@ -4,6 +4,13 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = path.dirname(fileURLToPath(import.meta.url))
+const envFile = path.join(root, '.env.development.local')
+if (fs.existsSync(envFile)) {
+  for (const line of fs.readFileSync(envFile, 'utf8').split(/\r?\n/)) {
+    const match = line.match(/^([A-Za-z_][A-Za-z0-9_]*)=(.*)$/)
+    if (match && !process.env[match[1]]) process.env[match[1]] = match[2].replace(/^['\"]|['\"]$/g, '')
+  }
+}
 const configs = {
   news: ['apiKey', 'mh-news-1bd1d', 'mh-news-1bd1d.firebaseapp.com', '428595106543', '1:428595106543:web:8e5e1d05bd13e03da0011a'],
   gallery: ['apiKey_2', 'mh-gallery', 'mh-gallery.firebaseapp.com', '650364941929', '1:650364941929:web:4f6658289ce51697f154f8'],
