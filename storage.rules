@@ -13,6 +13,13 @@ service firebase.storage {
       allow read, delete: if isAdmin();
     }
 
+    match /payment-screenshots/{fileName} {
+      allow write: if request.resource != null
+        && request.resource.size <= 5 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+      allow read, delete: if isAdmin();
+    }
+
     match /membership-documents/{fileName} {
       allow write: if false;
       allow read, delete: if isAdmin();
