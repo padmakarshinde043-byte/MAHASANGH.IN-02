@@ -34,6 +34,22 @@
       })
     }
 
+    let membershipAttempts = 0
+    const bindMembershipButton = () => {
+      const membershipButton = [...document.querySelectorAll('button')].find(button => button.textContent.trim() === 'सदस्यत्व अर्ज')
+      if (membershipButton && !membershipButton.dataset.membershipLink) {
+        membershipButton.dataset.membershipLink = 'true'
+        membershipButton.addEventListener('click', () => { window.location.href = '/membership.html' })
+        return true
+      }
+      return false
+    }
+    if (!bindMembershipButton()) {
+      const membershipTimer = setInterval(() => {
+        if (bindMembershipButton() || ++membershipAttempts > 50) clearInterval(membershipTimer)
+      }, 100)
+    }
+
     const indexNav = document.querySelector('#main-nav')
     if (indexNav) indexNav.innerHTML = markup
   }
