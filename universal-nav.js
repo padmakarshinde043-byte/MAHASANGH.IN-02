@@ -19,7 +19,7 @@
     const trigger = document.querySelector('.universal-menu-trigger')
     const close = panel.querySelector('.universal-menu-close')
     const setOpen = open => { panel.classList.toggle('open',open);trigger.setAttribute('aria-expanded',String(open));document.body.style.overflow=open?'hidden':'' }
-    trigger.addEventListener('click', () => setOpen(true)); close.addEventListener('click', () => setOpen(false)); panel.addEventListener('click', event => { if(event.target===panel) setOpen(false) })
+    trigger.addEventListener('click', () => setOpen(true)); close.addEventListener('click', () => setOpen(false)); panel.addEventListener('click', event => { if(event.target===panel) setOpen(false) });setTimeout(()=>{document.querySelectorAll('#app section, #app article').forEach(block=>{const meaningful=[...block.querySelectorAll('h1,h2,h3,h4,p,a,img,button')].some(node=>node.textContent.trim()||node.tagName==='IMG');if(!meaningful&&!block.querySelector('form'))block.remove()})},700)
   }
   if (document.readyState === 'complete') run(); else window.addEventListener('load', run, { once:true })
 })()
